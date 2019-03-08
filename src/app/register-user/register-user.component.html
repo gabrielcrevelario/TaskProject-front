@@ -1,0 +1,34 @@
+<button  class="btn btn-primary" (click)="openModal(template)" >Abrir cadastro De Usuarios</button>
+<ng-template #template>
+
+  <div class="modal-header">
+    
+    <h4>Cadstro de Usuario</h4>
+  </div>
+        <div class="modal-body">
+    <form #customerForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row col-sm-12 col-md-10">
+        <div class=" col-sm-4">
+          <label>Nome</label>
+          <input type="text" [(ngModel)]="usuario.nome"  >
+        </div>
+        <div class="col-sm-4">
+          <label>Email</label>
+          <input type="email"  [(ngModel)]="usuario.email">
+        </div>
+      </div>
+      <div class="row">
+
+        <app-custom-checkbox></app-custom-checkbox>
+      </div>
+        <div class="row col-sm-6 col-md-4">
+        <label>Senha</label>
+        <input type="password" class="form-control"  [(ngModel)]="usuario.senha">
+      </div>
+      <div class="row">
+        <button (click)="hide()" class="btn btn-white"> Cancelar<i class="fas fa-plus-circle"></i></button>
+        <button (ngSubmit)="onSubmit()" class="btn btn-primary"> Cadastrar<i class="fas fa-plus-circle"></i></button>
+      </div>
+  </form>
+</div>
+</ng-template>

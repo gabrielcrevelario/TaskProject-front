@@ -1,0 +1,28 @@
+
+<div>
+
+  <input type="text" name="titulo"  [(ngModel)]="titulo">
+  <button (click)="saveTask()" class="btn btn-primary"> <i class="fas fa-plus-circle"></i></button>
+  
+</div>
+<table class="table">
+  <thead class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Actions</th>
+      <th>Completar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tarefa of tarefas">
+      <td>{{tarefa.titulo}}</td>
+     <td><button (click)="remove()"><i class="fas fa-trash"></i> </button>
+     <button (click)="update()"><i class="fas fa-edit"></i></button> </td>
+    <td> <app-custom-checkbox></app-custom-checkbox></td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="loginIsTrue">
+  OII
+</p>
