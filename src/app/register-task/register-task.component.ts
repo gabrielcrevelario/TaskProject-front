@@ -33,8 +33,10 @@ ngOnInit() {
     this.tarefaService.create(tf).subscribe()
     this.tarefas.push(tf);
 }
-  remove() {
-  this.tarefaService.delete(this.tarefa.id)
+  remove(tarefa:Tarefa) {
+    debugger
+    this.tarefas = this.tarefas.filter(x => x.id != tarefa.id);
+  this.tarefaService.delete(this.tarefa.id).subscribe()
 }
 getData= (response)=> {
   if(response != null)

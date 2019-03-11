@@ -15,7 +15,7 @@ export class TarefaService {
     findTarefa = new EventEmitter<Tarefa>();
     cancel = new EventEmitter<boolean>();
     error:string;
-    public API_SERVER:string= 'http://localhost:59415/api/tarefa';
+    public API_SERVER:string= 'http://localhost:50001/api/tarefa/';
    
     constructor(private httpBaseService:BaseService, private httpClient:HttpClient) { }
 
@@ -53,8 +53,11 @@ this.cancel.emit(closeModal)
         catchError(this.handleError<Tarefa>('putTarefa'))
       );
      }
-       delete(idTarefa:number) {
-         this.httpClient.delete<Tarefa>(`${this.API_SERVER}${idTarefa}`)
+       delete(idTarefa:number):Observable<Tarefa> {
+        return this.httpClient.delete<Tarefa>(`${this.API_SERVER}${idTarefa}`).pipe(
+          tap((tarefa: Tarefa) => console.log(`update tarefa w/ id=${tarefa.id}`)),
+          catchError(this.handleError<Tarefa>('putTarefa'))
+        );
      }
 
 }

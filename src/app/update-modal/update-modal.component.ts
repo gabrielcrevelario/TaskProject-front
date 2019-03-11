@@ -25,6 +25,10 @@ modalRef: BsModalRef;
     this.tarefaService.cancelModal(false);
 
   }
+  changeOption() {
+    console.log('oi')
+  }
+  
   onSubmit() {
     this.tarefaService.create(this.tarefa);
     this.tarefaService.cancelModal(false);

@@ -21,7 +21,7 @@
           <button [(ngModel)]="tarefa.completo"  (click)="changeOption()" class="btn btn-warning"  ngDefaultControl>Não</button>
       </td>
       <td  class="actions">
-          <button (click)="remove()"><i class="fas fa-trash"></i> </button>
+          <button (click)="remove(tarefa)"><i class="fas fa-trash"></i> </button>
           <button (click)="update(tarefa)"><i class="fas fa-edit"></i></button> </td>
       </tr>
     </tbody>
@@ -30,3 +30,4 @@
     <app-update-modal  ></app-update-modal>
   </div>
 </div>
+
