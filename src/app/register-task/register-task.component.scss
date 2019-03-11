@@ -1,9 +1,53 @@
-table {
-    border: solid;
-    th{
-        border:solid
+.registerTask {
+@media only screen and (max-width: 600px) {
+    .createTask {
+        margin-top: -12%;
+        justify-content: space-evenly;
+        display: flex;
+        margin-left: 16%;
+        width: 25%;
+        position: absolute;
     }
-    td {
-        border:solid
+    table {
+        margin-top: 40%;
+    }
+  }
+}
+.registerTask {
+    .createTask {
+        margin-top: -6%;
+        justify-content: space-evenly;
+        display: flex;
+        width: 25%;
+        position: absolute;
+    }
+ 
+    table {
+        margin-top: 12%;
+        thead {
+        th {
+            text-align: center;
+        }
+    }
+    tbody {
+        text-align: center;
+        td{
+            height: 2px;
+          
+        }
+        .table td, .table th {
+            padding: .75rem;
+            vertical-align: top;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+    }
+    .change {
+        border-radius: 0!important;
+    }
+      .actions{
+        border:none!important;
+        background-color:white!important;
     }
 }
+        }

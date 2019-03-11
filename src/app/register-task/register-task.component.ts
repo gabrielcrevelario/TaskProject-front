@@ -1,10 +1,8 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TarefaService } from '../services/tarefa.service';
 import { Tarefa } from '../models/tarefa.model';
-import { LoginService } from '../services/login.service';
-import { ThrowStmt } from '@angular/compiler';
-import { Usuario } from '../models/usuario.model';
-
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-register-task',
   templateUrl: './register-task.component.html',
@@ -12,30 +10,40 @@ import { Usuario } from '../models/usuario.model';
 })
 export class RegisterTaskComponent implements OnInit {
 titulo:string;
+respModal:boolean = false
 tarefas=[];
 tarefa:Tarefa;
-  constructor(private tarefaService:TarefaService, private loginService:LoginService) { }
+closeModal:boolean = false;
+IsCompleted:boolean;
+constructor(private tarefaService:TarefaService, private modalService: BsModalService) { }
 loginIsTrue:boolean = false;
-  ngOnInit() {
-    debugger
- 
-   this.tarefaService.getAll().subscribe((data:any[]) => this.tarefas = data)
+modalRef: BsModalRef;
+ngOnInit() {
+  this.tarefaService.getAll().subscribe((data:any[]) => this.tarefas = data)
+  this.tarefaService.cancel.subscribe(
+    respModal => this.closeModal = respModal
+  )
   }
-saveTask() {
-  debugger
-  let tf = new Tarefa()
-  tf.titulo = this.titulo;
-this.tarefaService.create(tf)
+  saveTask() {
+    debugger
+    let tf = new Tarefa()
+    tf.titulo = this.titulo;
+    tf.usuarioId = 1;
+    tf.completo = true;
+    this.tarefaService.create(tf).subscribe()
+    this.tarefas.push(tf);
 }
-remove() {
+  remove() {
   this.tarefaService.delete(this.tarefa.id)
 }
 getData= (response)=> {
-if(response != null)
-this.tarefas = response
+  if(response != null)
+    this.tarefas = response
 }
-update() {
-  this.titulo = this.tarefa.titulo;
-  this.tarefaService.update(this.tarefa, this.tarefa.id)
+  update(tarefa:Tarefa) {
+    debugger
+    this.tarefa = tarefa;
+  this.respModal = true
+this.tarefaService.loadModal(this.tarefa);
 }
 }

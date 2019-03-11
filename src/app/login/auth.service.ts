@@ -7,8 +7,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  login= new EventEmitter<boolean>();
-loginAutenticado:boolean=false;
+  login = new EventEmitter<boolean>();
+  loginAutenticado:boolean=false;
   constructor(private router:Router) { }
   fazerLogin(usuario:Usuario) {
     if(usuario.email ==='admin@gmail.com' && usuario.senha === 'admin' ) {

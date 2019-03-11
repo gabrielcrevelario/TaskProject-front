@@ -14,14 +14,15 @@ import{ routing} from './task.routing';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TarefaService } from './services/tarefa.service';
 import { AuthService } from './login/auth.service';
-import {InterceptorModule} from './interceptor.module';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
     RegisterTaskComponent,
     LoginComponent,
-    CustomCheckboxComponent
+    CustomCheckboxComponent,
+    UpdateModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,9 +30,10 @@ import {InterceptorModule} from './interceptor.module';
     FontAwesomeModule,
     HttpClientModule,
     routing,
-    InterceptorModule,
     ModalModule.forRoot()
   ],
+  exports: [ UpdateModalComponent]
+  ,
   providers: [
     BaseService ,
     AuthService,
