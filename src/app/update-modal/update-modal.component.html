@@ -1,21 +1,28 @@
+<div class="modal-update-component">
+  <div class="modal-update-first">
+<div class="modal-update">
   <div class="modal-head">
     <h4>Update Tarefa</h4>
-  </div>
-  <div class="modal-body">
-  <div>
-    <form>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputEmail4">Titulo</label>
-          <input [value]="tarefa.titulo"   [(ngModel)]="tarefa.titulo"  type="text" class="form-control" placeholder="Titulo">
-        </div>
-        <div class="form-group col-md-6">
-            <button [(ngModel)]="tarefa.completo"  (click)="changeOption()" class="btn btn-success"  ngDefaultControl>Sim</button>
-            <button [(ngModel)]="tarefa.completo"  (click)="changeOption()" class="btn btn-warning"  ngDefaultControl>Não</button>
-        </div>
-        <button (click)="hide()" class="btn btn-white"> Cancelar<i class="far fa-times-circle"></i></button>
-        <button (ngSubmit)="onSubmit()" class="btn btn-primary"> Atualizar<i class="fas fa-plus-circle"></i></button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Titulo</label>
+              <input [value]="tarefa.titulo"   [(ngModel)]="tarefa.titulo"  type="text" class="form-control" name="titulo">
+            </div>
+            <div class="form-group col-md-6">
+              <button [(ngModel)]="tarefa.completo"  (click)="changeOption()" class="btn btn-success"  ngDefaultControl>Sim</button>
+              <button [(ngModel)]="tarefa.completo"  (click)="changeOption()" class="btn btn-warning"  ngDefaultControl>Não</button>
+            </div>
+            <button (click)="hide()" class="btn btn-white"> Cancelar<i class="far fa-times-circle"></i></button>
+            <button (click)="onSubmit()" class="btn btn-primary"> Atualizar<i class="fas fa-plus-circle"></i></button>
         </div>
       </form>
     </div>
-    </div>
+  </div>
+</div>
+
+</div>
+</div>

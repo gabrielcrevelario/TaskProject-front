@@ -1,0 +1,34 @@
+
+  .modal-update-component {
+
+      border: solid;
+      width: 103.5%;
+      background-color: black;
+      margin-left: -16%;
+      margin-top: -30%;
+      opacity: 0.8;
+      z-index: 9999;
+      height: 605px;
+      position: absolute;
+      .modal-update-first {
+        background: white;
+        width: 51%;
+        position: absolute;
+        display: flex;
+        opacity: 1;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-left: 20%;
+          .modal-update {
+                background: white;
+                width: 101%;
+                position: absolute;
+                margin-top: 13%;
+                display: flex;
+                opacity: 1;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-left: 20%;
+    }
+}
+    }

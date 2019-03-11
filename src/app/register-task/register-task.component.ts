@@ -19,10 +19,17 @@ constructor(private tarefaService:TarefaService, private modalService: BsModalSe
 loginIsTrue:boolean = false;
 modalRef: BsModalRef;
 ngOnInit() {
+  debugger
   this.tarefaService.getAll().subscribe((data:any[]) => this.tarefas = data)
-  this.tarefaService.cancel.subscribe(
-    respModal => this.closeModal = respModal
-  )
+ 
+  this.tarefaService.findTarefa.subscribe(
+    tarefa => this.tarefas.map(x => {
+      if( x.id === tarefa.id) {
+        x = tarefa
+        location.reload()
+    } 
+    })
+  ).unsubscribe()
   }
   saveTask() {
     debugger
@@ -35,6 +42,7 @@ ngOnInit() {
 }
   remove(tarefa:Tarefa) {
     debugger
+    this.tarefa = tarefa;
     this.tarefas = this.tarefas.filter(x => x.id != tarefa.id);
   this.tarefaService.delete(this.tarefa.id).subscribe()
 }
@@ -46,6 +54,8 @@ getData= (response)=> {
     debugger
     this.tarefa = tarefa;
   this.respModal = true
+  this.tarefa = Object.assign(new Tarefa(), tarefa)
 this.tarefaService.loadModal(this.tarefa);
+
 }
 }

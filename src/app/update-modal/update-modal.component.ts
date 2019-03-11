@@ -19,7 +19,7 @@ modalRef: BsModalRef;
       tarefa => {
         console.log(tarefa)
         this.tarefa = tarefa}
-    )
+    ).unsubscribe()
   }
   hide() {
     this.tarefaService.cancelModal(false);
@@ -30,7 +30,10 @@ modalRef: BsModalRef;
   }
   
   onSubmit() {
+    debugger
     this.tarefaService.create(this.tarefa);
     this.tarefaService.cancelModal(false);
-    }
+    this.tarefaService.update(this.tarefa, this.tarefa.id).subscribe();
+    this.tarefaService.loadModal(this.tarefa);
+  }
 }

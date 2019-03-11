@@ -11,7 +11,7 @@ export class AuthService {
   loginAutenticado:boolean=false;
   constructor(private router:Router) { }
   fazerLogin(usuario:Usuario) {
-    if(usuario.email ==='admin@gmail.com' && usuario.senha === 'admin' ) {
+    if(usuario.email ==='admin' && usuario.senha === 'admin' ) {
       this.loginAutenticado = true
      this.router.navigate(['/cadastrotarefa'])
       this.login.emit(true);
